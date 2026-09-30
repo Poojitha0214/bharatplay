@@ -1,0 +1,30 @@
+{
+  "name": "default-project",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "oxlint",
+    "preview": "vite preview",
+    "check:links": "node smoke/links.mjs",
+    "check:render": "vite build --ssr smoke/ssr.mjs --outDir dist-smoke --logLevel error && node dist-smoke/ssr.js",
+    "check:ux": "vite build --ssr smoke/ux.mjs --outDir dist-smoke --logLevel error && node dist-smoke/ux.js",
+    "check": "npm run lint && npm run check:links && npm run check:render && npm run check:ux && npm run build"
+  },
+  "dependencies": {
+    "lucide-react": "^1.49.0",
+    "react": "^19.2.8",
+    "react-dom": "^19.2.8",
+    "react-router-dom": "^7.18.4"
+  },
+  "devDependencies": {
+    "@types/react": "^19.2.18",
+    "@types/react-dom": "^19.2.7",
+    "@vitejs/plugin-react": "^6.1.1",
+    "jsdom": "^28.1.0",
+    "oxlint": "^1.81.0",
+    "vite": "^8.3.0"
+  }
+}
